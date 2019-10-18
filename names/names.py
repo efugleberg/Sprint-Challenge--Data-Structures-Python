@@ -17,16 +17,20 @@ duplicates = []
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
+#   Make a binary search tree, intialize the "head" with the first name in names_1.
 bst = BinarySearchTree(names_1[0])
+
+#  Loop through the names_1 list, adding to the binary search tree
 for name_1 in names_1:
     if name_1 != names_1[0]:
         bst.insert(name_1)
 
+#  Loop through the names_2 list, if the tree contains a name in name_2, append it to the duplicates list
 for name_2 in names_2:
     if bst.contains(name_2):
         duplicates.append(name_2)
-    if name_1 == name_2:
-        duplicates.append(name_1)
+    # if name_1 == name_2:
+    #     duplicates.append(name_1)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
